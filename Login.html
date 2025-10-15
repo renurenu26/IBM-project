@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Create Account</title>
+  <link rel="stylesheet" href="login.css"> 
+</head>
+<body>
+
+  <div class="container">
+    
+    <div class="form active" id="loginForm">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username" id="loginUser" required><br>
+      <input type="password" placeholder="Password" id="loginPass" required><br>
+      <button onclick="login()">Login</button>
+      <p class="switch" onclick="showSignup()">Create an account</p>
+    </div>
+
+    
+    <div class="form" id="signupForm">
+      <h2>Create Account</h2>
+      <input type="text" placeholder="Username" id="signupUser" required><br>
+      <input type="email" placeholder="Email" id="signupEmail" required><br>
+      <input type="password" placeholder="Password" id="signupPass" required><br>
+      <button onclick="signup()">Sign Up</button>
+      <p class="switch" onclick="showLogin()">Already have an account? Login</p>
+    </div>
+  </div>
+
+  <script>
+
+    function showSignup() {
+      document.getElementById('loginForm').classList.remove('active');
+      document.getElementById('signupForm').classList.add('active');
+    }
+
+    
+    function showLogin() {
+      document.getElementById('signupForm').classList.remove('active');
+      document.getElementById('loginForm').classList.add('active');
+    }
+
+    
+    function login() {
+      let user = document.getElementById('loginUser').value;
+      let pass = document.getElementById('loginPass').value;
+
+      if (user === "" || pass === "") {
+        alert("Please enter username and password!");
+      } else {
+        alert("Welcome, " + user + "!");
+      }
+    }
+
+    
+    function signup() {
+      let user = document.getElementById('signupUser').value;
+      let email = document.getElementById('signupEmail').value;
+      let pass = document.getElementById('signupPass').value;
+
+      if (user === "" || email === "" || pass === "") {
+        alert("Please fill all details!");
+      } else {
+        alert("Account created successfully for " + user);
+        showLogin(); 
+      }
+    }
+  </script>
+
+</body>
+</html>
